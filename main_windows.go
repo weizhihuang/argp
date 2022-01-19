@@ -32,7 +32,9 @@ func MessageBoxPlain(title, caption string) int {
 }
 
 func main() {
+	execPath := strings.Split(os.Args[0], "\\")
+	exec := execPath[len(execPath)-1]
 	args := strings.Join(os.Args[1:], " ")
 	clipboard.WriteAll(args)
-	MessageBoxPlain("ARGP", args)
+	MessageBoxPlain(exec, args)
 }
